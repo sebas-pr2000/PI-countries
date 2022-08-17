@@ -28,7 +28,9 @@ const createActivity = async (name, difficulty, duration, season, countries)=>{
 const getActivity = async ()=>{
 
    try {
-      const activities = await Activity.findAll();
+      const activities = await Activity.findAll({
+         include: [Country]
+      });
       return activities;
 
    } catch (error) {
@@ -36,7 +38,6 @@ const getActivity = async ()=>{
    }
 
 }
-
 
 module.exports = {
     createActivity,
