@@ -1,0 +1,54 @@
+
+.divv{
+    margin: 60px 0px 40px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buscar{
+    position: absolute;
+    padding: 5px;
+}
+
+.buscar input{
+    
+    width:0px;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.btn{
+    position: absolute;
+    top: 2px;
+    right: 0;
+    outline: none;
+    line-height: 18px;
+}
+
+.btn button{
+    width: 120px;
+    height: 40px;
+    background-color: #FF8C26;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 40px;
+    box-decoration-break: none;
+    border: none;
+    cursor: pointer;
+}
+
+.buscar:hover input{
+    width: 280px;
+}
+
+.buscar input:focus{
+    width: 280px;
+}
+

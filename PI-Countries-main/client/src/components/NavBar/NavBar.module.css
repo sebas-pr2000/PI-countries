@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@600;700&display=swap');
+
+
+.header{
+  display: flex;
+  background-color: #6852F2;
+  color: #fff;
+  align-items: center;
+  padding: 1.5rem 2rem;
+}
+
+.header h1{
+  font-family: 'Signika', sans-serif;
+  font-size: 45px;
+  line-height: 0.9;
+  font-weight: 700;
+  margin-top: 0px;
+}
+.header h2{
+  font-family: 'Signika', sans-serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.0;
+  margin-top: 20px;
+}
+
+
+.ordenamientoSeleccionar{
+    display: flex;
+    margin-left: 300px;
+    margin-bottom: 20px;
+}
+
+.crearActividad{
+  position: absolute;
+  left: 80px;
+  top: 140px;
+}
+
+.recargar{
+  position: absolute;
+  right: 110px;
+  top: 140px;
+}
+
+.crearActividad button, .recargar button{
+  width: 170px;
+  height: 30px;
+  background-color: #FF8C26;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 10px;
+  box-decoration-break: none;
+  border: none;
+  cursor: pointer;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: box-shadow, transform;
+  transition-property: box-shadow, transform;
+  
+}
+
+.btn:hover, .btn:focus, .btn:active{
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+
+}
+
+/* SELECT */
+
+.select {
+  position: relative;
+  border: 1px solid #ccc;
+  width: 140px;
+  height: 30px;
+  overflow: hidden;
+  background-color: #fff;
+  color: #fff;
+  margin-top: 5px;
+  margin-left: 22px;
+  border-radius: 8px;
+}
+  
+.select:before {
+    color:#fff;
+    content: '';
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 7px 5px 0 5px;
+    border-color: #fff transparent transparent transparent;
+    z-index: 5;
+    pointer-events: none;
+}
+  
+.select select {
+   font-size: 16px;
+   color:#fff;
+    padding: 5px 8px;
+    width: 100%;
+    height: 30px;
+    border: none;
+    box-shadow: none;
+    background-color: #FF8C26;;
+    background-image: none;
+    appearance: none;
+}

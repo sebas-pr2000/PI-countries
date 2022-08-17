@@ -1,0 +1,24 @@
+.Card{
+   position: relative;
+   padding: 30px 45px;
+   margin: 40px 30px;
+   width: 18rem;
+   background-color: #576EF2;
+   border-radius: 15px;
+}
+
+.Card h1,h3,h5{
+   color:#fff;
+}
+
+.hone{
+  position: relative;
+  bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.image{
+   width:280px; 
+   height:150px;
+}
+

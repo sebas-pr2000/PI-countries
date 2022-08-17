@@ -1,0 +1,36 @@
+.paginacion{
+    margin: 10px, 0;
+}
+
+.paginacion ul{
+    list-style: none;
+    text-align: center;
+    margin: 0px 6px;
+}
+
+.paginacion ul li{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.paginacion ul li a{
+    margin: 6px 0px;
+    display: block;
+    padding: 8px 18px;
+    font-size: 18px;
+    font-weight: 500;
+    color:#000;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition:  0.3s;
+}
+
+
+.ah:hover, .ah:active, .ah:focus{
+    background: #0dad08;
+    color: #fff;
+}
+
+
+

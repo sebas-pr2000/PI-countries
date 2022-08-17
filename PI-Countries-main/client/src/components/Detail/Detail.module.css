@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@600;700&display=swap');
+
+
+.as{
+    display: flex;
+    justify-content: center;
+}
+
+
+.titulo{
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    font-family: 'Signika', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.detaill{
+   margin-top: 30px;
+   width: 800px;
+   height: 380px;
+   background-color:#6852F2;
+   border-radius: 10px;
+
+}
+
+.contenido{
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Image{
+    width: 380px;
+    height: 200px;
+}
+
+.activity{
+  margin-top: 16px;
+  font-family: 'Signika', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.noContiene{
+    margin-top: 30px;
+    font-size: 35px;
+    font-weight: 500;
+    
+}
+
+
+.contentDetail{
+   display: flex;
+   flex-direction:column;
+   align-items: flex-start;
+}
+
+/*   ACCTIVIDADES  */
+
+
+.activityDiv{
+  display: flex;
+  justify-content: center;
+}
+
+.activityDetail{
+    background-color: #FF8C26;
+    border-radius: 15px;
+    padding: 15px 25px;
+    margin: 30px 15px;
+}
+
+.activityDetail h2{
+   color:#000;
+   font-family: 'Signika', sans-serif;
+}
+.activityDetail p {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+
+
+
+/*    BOTON      */
+
+.btn{
+    position: absolute;
+    top: 30px;
+    left: 80px;
+    width: 100px;
+    height: 30px;
+    background-color: #FF8C26;
+    color: #fff;
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 10px;
+    box-decoration-break: none;
+    border: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    
+  }
+  
+  .btn:hover, .btn:focus, .btn:active{
+     box-shadow: 0 0 20px rgba(255, 246, 246, 0.651); 
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
