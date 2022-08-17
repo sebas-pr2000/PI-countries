@@ -1,5 +1,4 @@
 const { Country, Activity } = require('../db.js');
-const {Op} = require("sequelize")
 const  axios = require("axios");
 
 
@@ -40,50 +39,27 @@ try {
   console.log(error);
 }
 }
-  
 
-const detailCountry = async(id) =>{
 
+const allNamesCountries = async () =>{
   try {
-    const detail = await Country.findAll({
-      where:{
-        ID : id
-      },
-      include: [Activity]
-    });
-
-    return detail;
-
+    const countriesName = await Country.findAll({
+      attributes: ["name"],
+      order: [["name", "ASC"]]
+    })
+    return countriesName;
+    
   } catch (error) {
     console.log(error);
   }
 }
   
-const countryName = async (name) =>{
-
-  try {
-    const country = await Country.findAll({
-      where:{
-        name: {
-         [Op.iLike] : `%${name}%` // ilike para no comparar mayus y minus
-        }
-      },
-      include : [Activity]
-    }) ;
-     return country;
-
-  } catch (error) {
-    console.log("country not found")
-  }
-
-}
 
 
 // 
 module.exports = {
     allCountries,
-    detailCountry,
-    countryName
+    allNamesCountries
 }
 
 // recordar que se puede hacer "||" para que un elemento tenga un valor por default
