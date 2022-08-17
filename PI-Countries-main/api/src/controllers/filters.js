@@ -26,11 +26,37 @@ const Za = async () =>{
  } catch (error) {
     console.log(error);
  }
+}
 
+const minPopulation = async () =>{
+    try{
+        const ordenaminetoMin = await Country.findAll({
+            order:[["population", "ASC"]], 
+            include: [Activity]
+        });
+        return ordenaminetoMin;
+    }catch(error){
+        console.log(error);
+    }
+}
+
+
+const maxPopulation = async () =>{
+    try{
+        const ordenaminetoMax = await Country.findAll({
+            order:[["population", "DESC"]], 
+            include: [Activity]
+        });
+        return ordenaminetoMax;
+    }catch(error){
+        console.log(error);
+    }
 }
 
 
 module.exports = {
   Az,
-  Za
+  Za,
+  minPopulation,
+  maxPopulation
 }
