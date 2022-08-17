@@ -5,7 +5,6 @@ const router = Router();
 
 
 router.get("/", async (req, res)=>{
-
     try {
         const activities = await getActivity()
         res.status(200).json(activities)
@@ -21,6 +20,7 @@ router.post("/",async (req, res) => {
 
     if(!name || !difficulty || !duration || ! season || ! countries){
        res.send(404).send("faltan enviar datos para la creacion")
+
     }
 
        try {
