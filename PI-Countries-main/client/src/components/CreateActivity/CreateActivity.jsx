@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
-import { postActivity, getNamesCountries} from "../../actions"; 
+import { postActivity, getNamesCountries, namesZero} from "../../actions"; 
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -14,25 +14,34 @@ function validate(input){
         errores.name ="Se requiere un Nombre"
     }
     else if(input.name.length < 3){
-        errores.name = "El nombre debe contener almenos 3 letras"
+        errores.name = "El Nombre debe contener almenos 3 letras"
     }
     else if(/^\s+$/.test(input.name)){
-        errores.name = "El nombre No puede ser un espacio en blanco"
+        errores.name = "El Nombre No puede ser un espacio en blanco"
     }
     else if( !/^[a-zA-Z ]*$/.test(input.name)){
-        errores.name ="El nombre solo debe contener letras"
+        errores.name ="El Nombre solo debe contener letras"
     }
     else if(input.difficulty < 1 || input.difficulty > 5 ){ 
-        errores.difficulty = "la dificultad debe ser un valor de 1 a 5"
+        errores.difficulty = "La Dificultad debe ser un valor de 1 a 5"
     }
     else if( !/^[0-9]+$/.test(input.difficulty)){ 
-        errores.difficulty= "debe ser un numero"  
+        errores.difficulty= "Debe ser un numero positivo"  
+    }
+    else if(input.difficulty.toString()[0] === "0") { 
+        errores.difficulty = "No puede comenzar con un 0"
     }
     else if( !/^[0-9]+$/.test(input.duration)){ 
-        errores.duration = "debe ser un numero"  
+        errores.duration = "Debe ser un numero"  
+    }
+    else if(input.duration < 1) { 
+        errores.duration = "Debe ser un numero positivo"  
+    }
+    else if(input.duration.toString()[0] === "0") { 
+        errores.duration = "No puede comenzar con un 0"
     }
     else if( input.duration % 1 !== 0){ //comprobar decimales 
-        errores.duration = "debe ser un numero entero"
+        errores.duration = "Debe ser un numero entero"
     }
     else if( input.duration > 12){
         errores.duration = "La Actividad no puede ser mayor a 12 Horas"
@@ -86,7 +95,7 @@ export default function CreateActivity(){
                                  
    }
    
-//                       SELECCIONAR
+//                       SELECCIONAR CONTINENTE
 
 
    function handleSelect(e){
@@ -140,6 +149,9 @@ export default function CreateActivity(){
 
   useEffect(()=>{
     dispatch(getNamesCountries())
+    return ( )=>{
+        dispatch(namesZero())
+    }
   },[]);
 
 
@@ -158,6 +170,7 @@ export default function CreateActivity(){
                 <input
                 type="text"
                 className={style.field}
+                placeholder = "Nombre de la Actividad"
                 value={input.name}  
                 name="name"
                 onChange={(e)=>handleChange(e)} 
@@ -170,6 +183,7 @@ export default function CreateActivity(){
              )}
                 <input
                 type="number"
+                placeholder="Debe ser de 1 a 5"
                 className={style.field}
                 value={input.difficulty}
                 name= "difficulty"
@@ -183,6 +197,7 @@ export default function CreateActivity(){
                )}
                 <input
                 type="number"
+                placeholder="Debe ser menor a 12 horas"
                 className={style.field}
                 value={input.duration}
                 name= "duration"
@@ -192,7 +207,7 @@ export default function CreateActivity(){
             <div>
                 <label>Temporada: <br></br> </label>
                 {!input.season && ( // ERROR
-                    <p className={style.error}>{ "Debe contener una temporada"}</p>
+                    <p className={style.error}>{ "Debe contener una Temporada"}</p>
                  )}     
                 <label className={style.label}>Primavera:
                 <input
@@ -229,7 +244,7 @@ export default function CreateActivity(){
             </div>
             <div>
                 {input.countries.length === 0 &&( // ERROR
-                        <p className={style.error}>{"debe contener almenos un pais"}</p>
+                        <p className={style.error}>{"Debe contener almenos un Pais"}</p>
                     )}
             <select onChange={e =>handleSelect(e)}
             >
