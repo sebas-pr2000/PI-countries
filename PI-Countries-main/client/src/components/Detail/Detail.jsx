@@ -1,9 +1,12 @@
 import React from "react";
 import { Link, useHistory} from "react-router-dom";
 import { useDispatch,  useSelector} from "react-redux";
-import { getDetail } from "../../actions";
+import { getDetail, detailZero } from "../../actions";
 import { useEffect } from "react";
 import style from "./Detail.module.css"
+
+// DESMONTAR COMPONENTE PARA QUE EL STATE ESTE VACIO, FILTROS COMBINADOSY HACER QUE EL FORMULARIO NO TENGA UN CAMPO OBLIGATORIO, MENSAJE POR SI NO EXISTE UN PAIS EN SEARCH, VALIDAR DESDE EL BACK 
+
 
 
 export default function Detail(props){
@@ -16,15 +19,19 @@ export default function Detail(props){
         history.goBack()
     }
 
-    useEffect(()=>{
-        dispatch(getDetail(props.match.params.ID)) // traer el id de la url 
-    },[])
+    useEffect( ()=>{
+            dispatch(getDetail(props.match.params.ID)) // traer el id de la url
+            return () => { // arrow para poder ejecutarlo 
+              dispatch(detailZero());
+            };
+        
+    },[dispatch])
 
 const detCountry =  useSelector((state) => state.detail);
 
 return(
     <div className={style.as}>
-        {console.log(detCountry)}
+        {console.log(props)}
         <Link to="/home">
             <button className={style.btn}>Volver</button>
         </Link>
