@@ -1,4 +1,4 @@
-import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDEN_NAME_ASC, ORDEN_NAME_DESC, ORDEN_POPULATION_ASC, ORDEN_POPULATION_DESC, GET_ACTIVITY, FILTER_ACTIVITY, GET_NAME_COUNTRY, POST_ACTIVITY, GET_NAMES_COUNTRIES, GET_DETAIL  } from "../actions";
+import { GET_COUNTRIES, FILTER_BY_CONTINENT, ORDEN_NAME_ASC, ORDEN_NAME_DESC, ORDEN_POPULATION_ASC, ORDEN_POPULATION_DESC, GET_ACTIVITY, FILTER_ACTIVITY, GET_NAME_COUNTRY, POST_ACTIVITY, GET_NAMES_COUNTRIES, GET_DETAIL, DETAIL_ZERO, NAMES_ZERO  } from "../actions";
 
 const initialState = {
     countries : [],
@@ -105,8 +105,19 @@ function rootReducer (state = initialState, action ){
             ...state,
             detail: action.payload
         }
+ 
+    case DETAIL_ZERO:
+        return{
+            ...state,
+            detail: action.payload 
+        }
 
 
+    case NAMES_ZERO:
+        return{
+            ...state,
+            names: action.payload
+        }    
 
         default:
             return state;
