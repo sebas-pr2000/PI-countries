@@ -12,6 +12,8 @@ export const GET_NAME_COUNTRY = "GET_NAME_COUNTRY";
 export const GET_NAMES_COUNTRIES = "GET_NAMES_COUNTRIES "
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_DETAIL = "GET_DETAIL";
+export const DETAIL_ZERO = "DETAIL_ZERO";
+export const NAMES_ZERO = "NAMES_ZERO"
 
 export function getCountries (){
     return async function (dispatch){
@@ -186,3 +188,22 @@ export function getDetail (id){
 
 }
 
+
+
+// DESMONTANDO COMPONENTES
+
+
+export function detailZero (){
+    return{
+        type: DETAIL_ZERO,
+        payload: []
+    }
+}
+
+
+export function namesZero (){
+    return {
+        type: NAMES_ZERO,
+        payload: []
+    }
+}
