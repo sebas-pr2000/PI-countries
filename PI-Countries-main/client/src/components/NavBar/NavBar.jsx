@@ -12,20 +12,6 @@ export default function NavBar({paginado}){
 const dispatch = useDispatch();   
 const allActivitys = useSelector((state) => state.activitys) 
 
-
-//                   ORDENAR POR POBLACION
-
-function handleOrdenPopulation(e){
-      paginado(1)
-    if(e.target.value === "asc-pob"){
-        dispatch(ordenPopulationAsc())
-    }else if(e.target.value === "desc-pob"){
-        dispatch(ordenPopulationDesc())
-    }else{
-        dispatch(getCountries());
-    }
-}
-
 //                   ORDENAR POR NOMBRE
 
 
@@ -35,7 +21,13 @@ function handleOrdenName(e){
          dispatch(ordenNameAsc())
     }else if(e.target.value === "desc-name"){
         dispatch(ordenNameDesc())
-    }else{
+    }
+    else if(e.target.value === "asc-pob"){
+      dispatch(ordenPopulationAsc())
+    }else if(e.target.value === "desc-pob"){
+      dispatch(ordenPopulationDesc())
+    }
+    else{
         dispatch(getCountries());
         }
     }
@@ -91,26 +83,19 @@ return(
        
         <div className={style.ordenamientoSeleccionar}>
             <div className={style.ordenamientoName}>
-          <h3>Ordenar por Nombre</h3>
+          <h3>Ordenar por:</h3>
               
          <div className={style.select}>  
           <select  onChange={e =>{handleOrdenName(e)}} >
             <option value="not-name">No Ordenar</option>
-            <option value="asc-name">Ascendete</option>
-            <option value="desc-name">Descendete</option>
+            <option value="asc-name">A-Z</option>
+            <option value="desc-name">Z-A</option>
+            <option value="asc-pob">Mayor Poblacion</option>
+            <option value="desc-pob">Menor Poblacion</option>
           </select>    
         </div>      
              </div>
-       <div className="ordenamiento-poblacion">
-         <h3>Ordenar por Poblacion </h3>
-         <div className={style.select}>
-          <select onChange={e => {handleOrdenPopulation(e)}}>
-            <option value="not-pob">No Ordenar</option> 
-            <option value="asc-pob">Ascendete</option>
-            <option value="desc-pob">Descendete</option>
-           </select>
-         </div>
-       </div>
+    
        <div className="selecionar-continente">
          <h3>Selecionar Continente </h3>
        <div className={style.select}>
