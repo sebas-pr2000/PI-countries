@@ -4,9 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import { getCountries,  getActivity} from "../../actions";
 import Cards from "../Cards/Cards"
 import Paginado from "../Paginado/Paginado"
-import SearchBAr from "../SearchBar/SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import NavBar from "../NavBar/NavBar";
-import style from "./Home.modules.css"
+import style from "./Home.module.css"
 
 
 export default function Home (){
@@ -35,6 +35,8 @@ export default function Home (){
         }
         }
         
+
+        
     //FIN PAGINADO
 
 
@@ -48,15 +50,15 @@ export default function Home (){
         <div className={style.home}>
             <NavBar paginado={paginado}/>
             <div>
-            <SearchBAr/>
+            <SearchBar/>
              <Paginado 
              countriesPerPage={countriesPerPage}
              allCountries={allCountries.length} 
              paginado={paginado} 
              />
-             {allCountries && currentCountries && (
+             {allCountries.length > 0  && currentCountries ? (
                 <Cards currentCountries={currentCountries}/>
-             )}
+             ):<p className={style.eve}>EL PAIS QUE BUSCASTE NO FUE ENCONTRADO</p>}
             </div>
         </div>
     )
