@@ -6,7 +6,7 @@
   background-color: #6852F2;
   color: #fff;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: 2.0rem 2rem;
 }
 
 .header h1{
@@ -27,20 +27,22 @@
 
 .ordenamientoSeleccionar{
     display: flex;
-    margin-left: 300px;
+    align-items: flex-end;
+    width: 500px;
+    margin-left: 580px;
     margin-bottom: 20px;
 }
 
 .crearActividad{
   position: absolute;
   left: 80px;
-  top: 140px;
+  top: 155px;
 }
 
 .recargar{
   position: absolute;
   right: 110px;
-  top: 140px;
+  top: 155px;
 }
 
 .crearActividad button, .recargar button{
